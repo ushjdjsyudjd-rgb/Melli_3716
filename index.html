@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>شعبه گیل رشت</title>
+    <meta name="theme-color" content="#0d66a1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <style>
+        body { font-family: Vazirmatn, sans-serif; background-color: #f8fafc; margin: 0; padding: 16px; -webkit-tap-highlight-color: transparent; }
+        .bmi-card { background: linear-gradient(135deg, #0d66a1 0%, #228cc8 100%); border-radius: 40px; padding: 35px 20px; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 12px 35px rgba(13, 102, 161, 0.25); gap: 18px; }
+        .digital-clock { font-size: 3.8rem; font-weight: 900; letter-spacing: -2px; line-height: 1; text-shadow: 0 0 20px rgba(255, 255, 255, 0.3); font-family: sans-serif; }
+        .service-row { background: white; border-radius: 30px; padding: 18px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; cursor: pointer; }
+        .bottom-card { background: white; border-radius: 30px; padding: 25px 15px; width: 48%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; cursor: pointer; }
+        #contactModal { display: none; background: rgba(13, 102, 161, 0.2); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        #splash-screen { position: fixed; inset: 0; z-index: 9999; background: #0d66a1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; transition: opacity 0.6s ease; }
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen">
+        <div class="text-3xl font-black mb-2 animate-pulse">بانک ملی ایران</div>
+        <div class="text-xl opacity-90 font-bold">شعبه گیل رشت</div>
+        <div class="mt-10 w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+    </div>
+
+    <div class="bmi-card mb-8">
+        <div id="digiClock" class="digital-clock">00:00</div>
+        <div class="flex flex-col items-center w-full gap-2 text-white">
+            <div class="bg-[#fbbf24] text-[#0d66a1] text-[11px] px-6 py-1.5 rounded-full font-black">شعبه گیل رشت</div>
+            <div class="text-[10px] opacity-80 font-bold">کد ۳۷۱۶</div>
+            <div class="text-[13px] font-black bg-white/10 px-8 py-2.5 rounded-full border border-white/10 backdrop-blur-md">شنبه، ۶ دی ۱۴۰۴</div>
+            <button onclick="toggleModal(true)" class="mt-2 bg-white/20 border border-white/30 px-8 py-3 rounded-full flex items-center gap-3 active:scale-95">
+                <span class="text-lg">📞</span><span class="text-[13px] font-black">تماس با شعبه</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-8 px-1">
+        <div class="service-row" onclick="window.location.href='https://baam.bmi.ir/fa/auth/login'">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-xl">🌐</div>
+                <div><div class="text-[13px] font-black text-slate-800">همراه بام ملی</div><div class="text-[10px] text-slate-400 font-bold">ورود به سامانه</div></div>
+            </div>
+            <span>❮</span>
+        </div>
+        <div class="service-row" onclick="window.location.href='https://bamapps.bmi.ir/app/android/Baam_4.23.1.594.apk'">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-xl">📥</div>
+                <div><div class="text-[13px] font-black text-slate-800">دانلود نسخه اندروید</div><div class="text-[10px] text-slate-400 font-bold">دریافت مستقیم فایل</div></div>
+            </div>
+            <span>❮</span>
+        </div>
+    </div>
+
+    <div class="flex justify-between gap-4 mb-8">
+        <div class="bottom-card" onclick="window.location.href='https://bmi.ir/landing/mehrbani'">
+            <div class="w-14 h-14 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-3 text-2xl">❤️</div>
+            <div class="text-[12px] font-black text-slate-700 text-center">محاسبه‌گر<br>طرح مهربانی</div>
+        </div>
+        <div class="bottom-card" onclick="window.location.href='https://bmi.ir/fa/calculators/melli'">
+            <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center mb-3 text-2xl">🧮</div>
+            <div class="text-[12px] font-black text-slate-700 text-center">محاسبه‌گر<br>طرح اعتبار ملی</div>
+        </div>
+    </div>
+
+    <div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center p-6">
+        <div class="bg-white/95 w-full max-w-sm rounded-[45px] shadow-2xl overflow-hidden border border-white">
+            <div class="p-6 bg-[#0d66a1] text-white flex justify-between items-center rounded-t-[45px]"><span class="font-black text-sm">تماس با واحدها</span><button onclick="toggleModal(false)" class="text-3xl">&times;</button></div>
+            <div class="p-6 space-y-3" dir="rtl">
+                <a href="tel:01333666474" class="flex justify-between items-center p-4 bg-slate-50 rounded-full border border-slate-100 shadow-sm"><span class="text-[12px] font-bold text-slate-700 text-right">ریاست شعبه</span><span class="text-[#0d66a1] font-black">01333666474</span></a>
+                <a href="tel:01333609169" class="flex justify-between items-center p-4 bg-slate-50 rounded-full border border-slate-100 shadow-sm"><span class="text-[12px] font-bold text-slate-700 text-right">معاون شعبه</span><span class="text-[#0d66a1] font-black">01333609169</span></a>
+                <a href="tel:01333663062" class="flex justify-between items-center p-4 bg-slate-50 rounded-full border border-slate-100 shadow-sm"><span class="text-[12px] font-bold text-slate-700 text-right">اعتبارات</span><span class="text-[#0d66a1] font-black">01333663062</span></a>
+                <a href="tel:01333600449" class="flex justify-between items-center p-4 bg-slate-50 rounded-full border border-slate-100 shadow-sm"><span class="text-[12px] font-bold text-slate-700 text-right">صندوق</span><span class="text-[#0d66a1] font-black">01333600449</span></a>
+            </div>
+            <button onclick="toggleModal(false)" class="w-full p-4 text-slate-400 text-[11px] font-bold border-t">بستن</button>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() { const now = new Date(); document.getElementById('digiClock').textContent = String(now.getHours()).padStart(2, '0') + ":" + String(now.getMinutes()).padStart(2, '0'); }
+        setInterval(updateClock, 1000); updateClock();
+        function toggleModal(show) { document.getElementById('contactModal').style.display = show ? 'flex' : 'none'; }
+        window.addEventListener('load', () => { setTimeout(() => { const splash = document.getElementById('splash-screen'); splash.style.opacity = '0'; setTimeout(() => splash.remove(), 600); }, 2500); });
+    </script>
+</body>
+</html>
